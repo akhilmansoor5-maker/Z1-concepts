@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --z1-void: #000000;
+  --z1-black: #050505;
+  --z1-charcoal: #0b0b0b;
+  --z1-steel: #141414;
+  --z1-white: #f4f4f4;
+  --z1-off-white: #e7e7e7;
+  --z1-muted: #9a9a9a;
+  --z1-red: #e10600;
+  --z1-red-bright: #ff2414;
+  --z1-border: rgba(255, 255, 255, 0.12);
+  --z1-glow: rgba(225, 6, 0, 0.28);
+}
+
+@theme inline {
+  --color-z1-void: var(--z1-void);
+  --color-z1-black: var(--z1-black);
+  --color-z1-charcoal: var(--z1-charcoal);
+  --color-z1-steel: var(--z1-steel);
+  --color-z1-white: var(--z1-white);
+  --color-z1-off-white: var(--z1-off-white);
+  --color-z1-muted: var(--z1-muted);
+  --color-z1-red: var(--z1-red);
+  --color-z1-red-bright: var(--z1-red-bright);
+  --color-z1-border: var(--z1-border);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-oswald);
+  --font-mono: var(--font-plex);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--z1-void);
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+body {
+  background: var(--z1-black);
+  color: var(--z1-white);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--z1-red);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--z1-red);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
