@@ -18,7 +18,11 @@ export default function Home() {
         ctaLabel="Open gallery"
       />
       <Reviews />
-      <FinalCta />
+      <FinalCta
+        heading="Bring the car in."
+        copy="Detailing, protection and styling at the Manjeri studio. WhatsApp Z1 to book a visit."
+        image="/images/z1/maps-shop-1.jpg"
+      />
     </>
   );
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { FeaturedServices } from "@/components/sections/FeaturedServices";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { PageHero } from "@/components/sections/PageHero";
-import { PpfFeature } from "@/components/sections/PpfFeature";
 import { SurfaceProtection } from "@/components/sections/SurfaceProtection";
+import { getWhatsAppHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Protection",
@@ -21,10 +20,15 @@ export default function ProtectionPage() {
         image="/images/z1/ig-july08.jpg"
         imageAlt="Finished black Ford at a Z1 Concepts detailing bay"
       />
-      <PpfFeature />
       <SurfaceProtection />
-      <FeaturedServices hrefs={["/protection"]} heading="Protection work" />
-      <FinalCta />
+      <FinalCta
+        heading="Ask about PPF and coatings."
+        copy="Film and surface protection, chosen for the vehicle rather than a single formula."
+        primaryHref={getWhatsAppHref(
+          "Hello Z1 Concepts — I would like to enquire about PPF or coatings.",
+        )}
+        primaryLabel="WhatsApp protection"
+      />
     </>
   );
 }

@@ -1,22 +1,23 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/cn";
 
 const variants = {
   primary:
-    "border-transparent bg-z1-red text-white shadow-[0_0_24px_rgba(225,6,0,0.28)] hover:bg-z1-red-bright hover:shadow-[0_0_32px_rgba(225,6,0,0.4)]",
+    "border-transparent bg-z1-red text-white shadow-[0_0_24px_rgba(225,6,0,0.28)] hover:bg-z1-red-bright hover:shadow-[0_0_32px_rgba(225,6,0,0.4)] active:bg-z1-red-bright",
   outline:
-    "border-white/25 bg-transparent text-white hover:border-white hover:bg-white/5",
-  ghost: "border-transparent bg-white/5 text-white hover:bg-white/10",
-  whatsapp: "border-transparent bg-[#25D366] text-z1-void hover:bg-[#2fe072]",
+    "border-white/25 bg-transparent text-white hover:border-white hover:bg-white/5 active:bg-white/10",
+  ghost: "border-transparent bg-white/5 text-white hover:bg-white/10 active:bg-white/15",
+  whatsapp: "border-transparent bg-[#25D366] text-z1-void hover:bg-[#2fe072] active:bg-[#2fe072]",
 } as const;
 
 const sizes = {
-  sm: "min-h-11 px-4 text-[11px]",
+  sm: "min-h-12 px-4 text-[11px]",
   md: "min-h-12 px-6 text-[12px]",
-  lg: "min-h-14 px-8 text-[13px]",
+  lg: "min-h-14 px-6 text-[12px] sm:px-8 sm:text-[13px]",
 } as const;
 
 type ButtonVariant = keyof typeof variants;
@@ -53,14 +54,19 @@ export function Button({
   ...props
 }: ButtonProps) {
   const reduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const classes = cn(baseClass, variants[variant], sizes[size], className);
-  const motionProps = reduceMotion
-    ? {}
-    : {
-        whileHover: { y: -1 },
-        whileTap: { scale: 0.98 },
-        transition: { duration: 0.18, ease: [0.22, 1, 0.36, 1] as const },
-      };
+  const motionProps =
+    !mounted || reduceMotion
+      ? {}
+      : {
+          whileHover: { y: -1 },
+          whileTap: { scale: 0.98 },
+          transition: { duration: 0.18, ease: [0.22, 1, 0.36, 1] as const },
+        };
 
   if ("href" in props && props.href) {
     const { href, external } = props;

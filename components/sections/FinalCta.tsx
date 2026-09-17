@@ -1,42 +1,62 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Reveal } from "@/components/motion/Reveal";
 import { getWhatsAppHref, site } from "@/lib/site";
+import { BackgroundMedia } from "@/components/ui/BackgroundMedia";
 
-export function FinalCta() {
+type FinalCtaProps = {
+  heading: string;
+  copy: string;
+  image?: string;
+  imageAlt?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+};
+
+export function FinalCta({
+  heading,
+  copy,
+  image,
+  imageAlt = "Z1 Concepts Auto Detailing studio in Manjeri",
+  primaryHref = getWhatsAppHref(),
+  primaryLabel = "WhatsApp Z1",
+  secondaryHref = site.mapsSearchUrl,
+  secondaryLabel = "Get Directions",
+}: FinalCtaProps) {
   return (
-    <section className="relative isolate min-h-[70vh] overflow-hidden border-t border-white/10">
-      <Image
-        src="/images/z1/maps-shop-1.jpg"
-        alt="Z1 Concepts Auto Detailing studio in Manjeri"
-        fill
-        sizes="100vw"
-        className="object-cover object-[center_40%]"
-      />
-      <div className="absolute inset-0 bg-black/75" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,6,0,0.18),transparent_55%)]" />
+    <section className="relative isolate min-h-[38svh] overflow-hidden border-t border-white/10 bg-z1-charcoal">
+      {image ? (
+        <>
+          <BackgroundMedia image={image} imageAlt={imageAlt} className="object-cover object-[center_40%]" />
+          <div className="absolute inset-0 bg-black/78" />
+        </>
+      ) : null}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,6,0,0.14),transparent_55%)]" />
 
-      <Container className="relative flex min-h-[70vh] flex-col items-start justify-center py-24">
-        <Reveal>
-          <h2 className="max-w-4xl font-display text-[clamp(2.8rem,9vw,6.8rem)] leading-[0.86] font-semibold uppercase tracking-tight">
-            Ready to redefine your drive?
+      <Container className="relative flex min-h-[38svh] flex-col items-center justify-center py-12 pb-[max(3rem,env(safe-area-inset-bottom))] text-center sm:py-14">
+        <Reveal className="flex w-full max-w-2xl flex-col items-center">
+          <h2 className="font-display text-[clamp(1.7rem,4.6vw,2.9rem)] leading-[0.95] font-semibold uppercase tracking-tight">
+            {heading}
           </h2>
-          <p className="mt-6 text-lg text-white/70">Bring your car to Z1 Concepts.</p>
-          <div className="mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button href={getWhatsAppHref()} className="w-full sm:w-auto" size="lg">
-              <WhatsAppIcon />
-              WhatsApp Z1
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70 sm:text-base">
+            {copy}
+          </p>
+          <div className="mt-7 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:items-center">
+            <Button href={primaryHref} external={primaryHref.startsWith("http")} size="md" className="w-full sm:w-auto">
+              {primaryHref.includes("wa.me") ? <WhatsAppIcon /> : null}
+              {primaryLabel}
             </Button>
             <Button
-              href={site.mapsSearchUrl}
-              external
+              href={secondaryHref}
+              external={secondaryHref.startsWith("http")}
               variant="outline"
+              size="md"
               className="w-full sm:w-auto"
-              size="lg"
             >
-              Get Directions
+              {secondaryLabel}
             </Button>
           </div>
         </Reveal>

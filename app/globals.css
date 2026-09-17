@@ -12,6 +12,12 @@
   --z1-red-bright: #ff2414;
   --z1-border: rgba(255, 255, 255, 0.12);
   --z1-glow: rgba(225, 6, 0, 0.28);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --nav-h: 4.5rem;
+  --fab-space: 5.5rem;
 }
 
 @theme inline {
@@ -33,16 +39,38 @@
 html {
   scroll-behavior: smooth;
   background: var(--z1-void);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 [id] {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: calc(var(--nav-h) + var(--safe-top) + 0.75rem);
 }
 
 body {
   background: var(--z1-black);
   color: var(--z1-white);
   font-family: var(--font-inter), system-ui, sans-serif;
+  min-height: 100dvh;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: rgb(225 6 0 / 0.18);
+}
+
+a,
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+img,
+video {
+  max-width: 100%;
 }
 
 ::selection {

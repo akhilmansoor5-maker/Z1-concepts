@@ -20,7 +20,10 @@ export default function GalleryPage() {
         imageAlt="Red BMW being hand-washed in front of the Z1 Concepts studio wall"
       />
       <Gallery heading="Studio photographs." />
-      <FinalCta />
+      <FinalCta
+        heading="See it in person."
+        copy="These photographs are from the Manjeri studio. Come by, or WhatsApp Z1 before you visit."
+      />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BrandStatement } from "@/components/sections/BrandStatement";
+import { AboutIntro } from "@/components/sections/AboutIntro";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { Process } from "@/components/sections/Process";
@@ -21,10 +21,13 @@ export default function AboutPage() {
         image="/images/z1/maps-shop-5.jpg"
         imageAlt="Z1 Concepts studio on Manjeri–Pandikkad Road"
       />
-      <BrandStatement />
+      <AboutIntro />
       <Transformation />
       <Process />
-      <FinalCta />
+      <FinalCta
+        heading="Meet the studio."
+        copy="On Manjeri–Pandikkad Road, Kizhakkethala — near Madheena Hotel. Open Maps or message before you come."
+      />
     </>
   );
 }

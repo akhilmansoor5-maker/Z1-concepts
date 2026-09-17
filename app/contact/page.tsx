@@ -3,6 +3,7 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { LocalSeo } from "@/components/sections/LocalSeo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Reviews } from "@/components/sections/Reviews";
+import { getTelHref, getWhatsAppHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const tel = getTelHref() ?? getWhatsAppHref();
+
   return (
     <>
       <PageHero
@@ -22,7 +25,16 @@ export default function ContactPage() {
       />
       <LocalSeo />
       <Reviews />
-      <FinalCta />
+      <FinalCta
+        heading="Message Z1."
+        copy="WhatsApp the studio, call the listed number, or open Google Maps for the Manjeri bay."
+        image="/images/z1/maps-shop-1.jpg"
+        imageAlt="Z1 Concepts Auto Detailing studio frontage in Manjeri"
+        primaryHref={getWhatsAppHref()}
+        primaryLabel="WhatsApp Z1"
+        secondaryHref={tel}
+        secondaryLabel="Call the studio"
+      />
     </>
   );
 }

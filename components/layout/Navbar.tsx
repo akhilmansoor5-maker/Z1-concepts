@@ -47,16 +47,16 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-[70] transition-[background-color,border-color,backdrop-filter] duration-300",
+          "fixed inset-x-0 top-0 z-[70] pt-[env(safe-area-inset-top)] transition-[background-color,border-color,backdrop-filter] duration-300",
           scrolled || open
             ? "border-b border-white/10 bg-black/90 backdrop-blur-md"
             : "border-b border-transparent bg-gradient-to-b from-black/80 via-black/40 to-transparent",
         )}
       >
-        <Container className="flex h-[72px] items-center justify-between gap-4 lg:h-20">
+        <Container className="flex h-16 items-center justify-between gap-3 sm:h-[72px] lg:h-20">
           <Link
             href="/"
-            className="relative z-10 shrink-0"
+            className="relative z-10 inline-flex min-h-11 min-w-11 shrink-0 items-center"
             onClick={() => setOpen(false)}
             aria-label="Z1 Concepts home"
           >
@@ -66,11 +66,11 @@ export function Navbar() {
               width={400}
               height={120}
               priority
-              className="h-9 w-auto sm:h-10"
+              className="h-8 w-auto sm:h-10"
             />
           </Link>
 
-          <nav className="hidden items-center gap-8 lg:flex xl:gap-10" aria-label="Primary">
+          <nav className="hidden items-center gap-7 lg:flex xl:gap-10" aria-label="Primary">
             {navItems.map((item) => {
               const active = pathname === item.href;
               return (
@@ -79,7 +79,7 @@ export function Navbar() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "text-[11px] font-medium uppercase tracking-[0.24em] transition-colors",
+                    "inline-flex min-h-11 items-center text-[11px] font-medium uppercase tracking-[0.24em] transition-colors",
                     active ? "text-white" : "text-white/70 hover:text-white",
                   )}
                 >
@@ -95,19 +95,19 @@ export function Navbar() {
             </Button>
           </div>
 
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-1 sm:gap-2 lg:hidden">
             <a
               href={getWhatsAppHref()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 min-w-11 items-center justify-center text-[#25D366]"
+              className="inline-flex min-h-12 min-w-12 items-center justify-center text-[#25D366] active:opacity-70"
               aria-label="WhatsApp Z1"
             >
               <WhatsAppIcon className="h-[22px] w-[22px]" />
             </a>
             <button
               type="button"
-              className="inline-flex min-h-11 min-w-11 flex-col items-center justify-center gap-[6px]"
+              className="inline-flex min-h-12 min-w-12 flex-col items-center justify-center gap-[6px] active:opacity-70"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((value) => !value)}
@@ -136,25 +136,25 @@ export function Navbar() {
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.2 }}
           >
-            <Container className="flex h-dvh flex-col pb-8 pt-24">
-              <nav className="flex flex-1 flex-col justify-center gap-1" aria-label="Mobile">
+            <Container className="flex h-dvh flex-col pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[calc(5.5rem+env(safe-area-inset-top))]">
+              <nav className="flex flex-1 flex-col justify-center gap-1 overflow-y-auto" aria-label="Mobile">
                 {navItems.map((item, index) => {
                   const active = pathname === item.href;
                   return (
                     <motion.div
                       key={item.href}
-                      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+                      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.05 * index, duration: 0.4 }}
+                      transition={{ delay: 0.04 * index, duration: 0.28 }}
                     >
                       <Link
                         href={item.href}
                         onClick={() => setOpen(false)}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                          "block py-3 font-display text-4xl uppercase tracking-wide sm:text-5xl",
+                          "flex min-h-14 items-center font-display text-[clamp(1.85rem,8vw,2.75rem)] uppercase tracking-wide",
                           active ? "text-z1-red" : "text-white",
                         )}
                       >
@@ -168,7 +168,7 @@ export function Navbar() {
                 <WhatsAppIcon />
                 WhatsApp Z1
               </Button>
-              <p className="mt-5 text-center text-[11px] uppercase tracking-[0.22em] text-white/45">
+              <p className="mt-4 text-center text-[11px] uppercase tracking-[0.22em] text-white/45">
                 {site.location.city}, {site.location.region}
               </p>
             </Container>

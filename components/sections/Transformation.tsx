@@ -17,13 +17,13 @@ const shots = [
 
 export function Transformation() {
   return (
-    <section id="difference" className="border-t border-white/10 bg-z1-charcoal py-20 sm:py-28">
+    <section id="difference" className="border-t border-white/10 bg-z1-charcoal py-14 sm:py-16">
       <Container>
         <Reveal>
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-z1-red">
             The studio
           </p>
-          <h2 className="mt-4 font-display text-[clamp(2.8rem,8vw,6rem)] leading-[0.88] font-semibold uppercase tracking-tight">
+          <h2 className="mt-3 font-display text-[clamp(1.75rem,4vw,2.75rem)] leading-[0.95] font-semibold uppercase tracking-tight">
             Built for the work.
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-white/60">
@@ -31,10 +31,10 @@ export function Transformation() {
             Pandikkad Road, photographed from Google Maps.
           </p>
         </Reveal>
-        <div className="mt-12 grid gap-3 md:grid-cols-2">
+        <div className="mt-8 grid gap-3 md:grid-cols-2">
           {shots.map((shot, index) => (
             <Reveal key={shot.src} delay={index * 0.08}>
-              <div className="relative min-h-[22rem] overflow-hidden sm:min-h-[28rem]">
+              <div className="relative aspect-[4/3] overflow-hidden sm:min-h-[22rem] sm:aspect-auto">
                 <Image
                   src={shot.src}
                   alt={shot.alt}

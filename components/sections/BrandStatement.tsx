@@ -21,14 +21,14 @@ export function BrandStatement() {
       className="relative overflow-hidden border-t border-white/10 bg-z1-black"
     >
       <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-        <Container className="flex flex-col justify-center py-20 sm:py-28 lg:max-w-none lg:py-36">
+        <Container className="flex flex-col justify-center py-14 sm:py-16 lg:max-w-none lg:py-20">
           <Reveal>
-            <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.38em] text-z1-red sm:text-[11px]">
+            <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.38em] text-z1-red sm:text-[11px]">
               Automotive studio
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="max-w-xl font-display text-[clamp(3.2rem,9vw,7rem)] leading-[0.86] font-semibold tracking-tight text-white uppercase">
+            <h2 className="max-w-xl font-display text-[clamp(2.15rem,11vw,5rem)] leading-[0.88] font-semibold tracking-tight text-white uppercase">
               More than
               <br />
               a wash.
@@ -46,7 +46,7 @@ export function BrandStatement() {
           </Reveal>
         </Container>
 
-        <div className="relative min-h-[52vh] overflow-hidden lg:min-h-full">
+        <div className="relative min-h-[36svh] overflow-hidden lg:min-h-[56svh]">
           <motion.div
             className="absolute inset-0"
             style={reduceMotion ? undefined : { scale: imageScale }}

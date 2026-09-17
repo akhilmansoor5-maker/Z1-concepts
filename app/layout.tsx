@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Inter, Oswald } from "next/font/google";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Navbar } from "@/components/layout/Navbar";
@@ -26,7 +26,10 @@ const plex = IBM_Plex_Mono({
   display: "swap",
 });
 
+const siteUrl = "https://akhilmansoor5-maker.github.io/Z1-concepts";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Z1 Concepts | Automotive Detailing, Protection & Styling in Manjeri",
     template: "%s | Z1 Concepts",
@@ -52,6 +55,18 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  formatDetection: {
+    telephone: true,
+    email: false,
+    address: true,
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -64,11 +79,11 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${oswald.variable} ${plex.variable} h-full antialiased`}
     >
-      <body className="min-h-dvh overflow-x-hidden bg-z1-black font-sans text-z1-white">
+      <body className="min-h-dvh overflow-x-clip bg-z1-black font-sans text-z1-white">
         <JsonLd />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-z1-red focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-[max(1rem,env(safe-area-inset-top))] focus:left-4 focus:z-[100] focus:bg-z1-red focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>

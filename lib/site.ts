@@ -39,8 +39,8 @@ export const categories = [
     title: "Detail",
     cta: "Explore Detailing",
     href: "/services",
-    image: "/images/z1/ig-jeep.jpg",
-    imageAlt: "Land Rover Defender under foam at the Z1 Concepts wash bay",
+    image: "/images/z1/maps-shop-2.jpg",
+    imageAlt: "BMW models being washed inside the Z1 Concepts detailing bay",
     items: [
       "Washing",
       "Detailing",
@@ -361,7 +361,7 @@ export const localBusinessJsonLd = {
   "@type": "AutoDetailing",
   name: site.name,
   description: site.tagline,
-  image: "/brand/z1-logo.png",
+  image: "https://akhilmansoor5-maker.github.io/Z1-concepts/brand/z1-logo.png",
   telephone: site.phone,
   address: {
     "@type": "PostalAddress",

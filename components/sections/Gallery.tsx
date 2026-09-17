@@ -23,49 +23,50 @@ export function Gallery({
   ctaLabel = "View gallery",
 }: GalleryProps) {
   const items = limit ? galleryItems.slice(0, limit) : galleryItems;
+  const columns = items.length > 6 ? "lg:grid-cols-5" : "lg:grid-cols-3";
 
   return (
-    <section className="border-t border-white/10 bg-z1-black py-20 sm:py-28">
+    <section className="border-t border-white/10 bg-z1-black py-14 sm:py-16">
       <Container>
         <Reveal>
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-z1-red">
             {kicker}
           </p>
-          <h2 className="mt-4 font-display text-[clamp(2.8rem,7vw,5.5rem)] leading-[0.88] font-semibold uppercase tracking-tight">
+          <h2 className="mt-3 font-display text-[clamp(1.75rem,4vw,2.75rem)] leading-[0.95] font-semibold uppercase tracking-tight">
             {heading}
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid auto-rows-[12rem] gap-3 sm:auto-rows-[16rem] sm:grid-cols-2 lg:auto-rows-[18rem] lg:grid-cols-4">
+        <div className={cn("mt-8 grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3", columns)}>
           {items.map((item, index) => (
             <Reveal
               key={`${item.src}-${item.label}`}
-              delay={index * 0.04}
-              className={cn("group relative overflow-hidden", item.span)}
+              delay={index * 0.03}
+              className="group relative aspect-[4/3] overflow-hidden"
             >
               <Image
                 src={item.src}
                 alt={item.alt}
                 fill
-                sizes="(min-width: 1024px) 25vw, 50vw"
+                sizes="(min-width: 1024px) 20vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <p className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.28em] text-white">
+              <p className="absolute bottom-2 left-2 font-mono text-[9px] uppercase tracking-[0.22em] text-white sm:bottom-3 sm:left-3 sm:text-[10px] sm:tracking-[0.28em]">
                 {item.label}
               </p>
             </Reveal>
           ))}
         </div>
         {ctaHref ? (
-          <div className="mt-10">
-            <Button href={ctaHref} variant="outline">
+          <div className="mt-8">
+            <Button href={ctaHref} variant="outline" size="sm">
               {ctaLabel}
             </Button>
           </div>
         ) : null}
         {showCredit ? (
-          <p className="mt-6 text-xs tracking-wide text-white/35">
+          <p className="mt-5 text-xs tracking-wide text-white/35">
             Photographs from Z1 Concepts on Instagram and Google Maps.
           </p>
         ) : null}
