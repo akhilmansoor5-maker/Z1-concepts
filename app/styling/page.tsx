@@ -6,9 +6,9 @@ import { Transformation } from "@/components/sections/Transformation";
 import { getWhatsAppHref, stylingServices } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Styling",
+  title: "Car Wrapping & Styling in Manjeri",
   description:
-    "Car wrapping, facelifting, body kits, sunfilm and painting at Z1 Concepts, Manjeri.",
+    "Car wrapping, facelifting, body kits, sunfilm and painting at Z1 Concepts in Manjeri, Google rated 4.6 for car wash, detailing and styling.",
 };
 
 export default function StylingPage() {
@@ -16,8 +16,8 @@ export default function StylingPage() {
     <>
       <PageHero
         kicker="Transform"
-        title="Styling that changes the look."
-        copy="Wrapping, facelifting, body kits, sunfilm and painting — visual work offered at Z1 Concepts."
+        title={"Styling that\nchanges the look."}
+        copy="Wrapping, facelifting, body kits, sunfilm and painting. Visual work offered at Z1 Concepts."
         image="/images/z1/ig-july09.jpg"
         imageAlt="Body kit laid out in front of a Swift at Z1 Concepts"
       />
@@ -30,11 +30,11 @@ export default function StylingPage() {
       <Transformation />
       <FinalCta
         heading="Change the look."
-        copy="Wrapping, facelifting, body kits, sunfilm and painting — talk to the studio about the car."
+        copy="Wrapping, facelifting, body kits, sunfilm and painting. Talk to the studio about the car."
         image="/images/z1/ig-july09.jpg"
         imageAlt="Body kit laid out in front of a Swift at Z1 Concepts"
         primaryHref={getWhatsAppHref(
-          "Hello Z1 Concepts — I would like to enquire about wrapping or styling.",
+          "Hello Z1 Concepts. I would like to enquire about wrapping or styling.",
         )}
         primaryLabel="WhatsApp styling"
       />

@@ -6,9 +6,9 @@ import { Reviews } from "@/components/sections/Reviews";
 import { getTelHref, getWhatsAppHref } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Visit the Studio in Manjeri",
   description:
-    "Visit Z1 Concepts on Manjeri–Pandikkad Road, near Madheena Hotel, Kizhakkethala. Call +91 86064 64006 or WhatsApp +91 85905 98812.",
+    "Best car wash in Manjeri. Visit Z1 Concepts on Manjeri-Pandikkad Road, near Madheena Hotel, Kizhakkethala. Google rated 4.6. Call +91 86064 64006 or WhatsApp +91 85905 98812.",
 };
 
 export default function ContactPage() {
@@ -19,9 +19,11 @@ export default function ContactPage() {
       <PageHero
         kicker="Contact"
         title="Visit the studio."
-        copy="Manjeri–Pandikkad Road, near Madheena Hotel, Kizhakkethala. WhatsApp, call or open Google Maps for directions."
+        copy="Manjeri-Pandikkad Road, near Madheena Hotel, Kizhakkethala. WhatsApp, call or open Google Maps for directions."
         image="/images/z1/maps-shop-1.jpg"
         imageAlt="Z1 Concepts Auto Detailing studio frontage in Manjeri"
+        size="tall"
+        imageClassName="object-cover object-bottom"
       />
       <LocalSeo />
       <Reviews />

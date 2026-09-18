@@ -7,30 +7,29 @@ export function LocalSeo() {
   const tel = getTelHref();
 
   return (
-    <section className="border-t border-white/10 bg-z1-charcoal py-14 sm:py-16">
+    <section className="border-t border-white/10 bg-z1-charcoal py-8 sm:py-16">
       <Container>
         <Reveal>
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-z1-red">
+          <p className="z-kicker text-z1-red">
             {site.location.region}, India
           </p>
-          <h2 className="mt-3 max-w-4xl font-display text-[clamp(1.75rem,4vw,2.75rem)] leading-[0.95] font-semibold uppercase tracking-tight">
-            Z1 Concepts — Manjeri
+          <h2 className="z-display mt-3 max-w-4xl lg:text-[clamp(1.9rem,4vw,2.75rem)] lg:leading-[0.95]">
+            Best car wash in Manjeri
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <p className="max-w-2xl text-base leading-relaxed text-white/68 sm:text-lg">
-                Z1 Concepts is an automotive studio in Manjeri, Kerala for owners
-                who want more than a quick wash. The workshop covers automotive
-                detailing, car wash and interior cleaning, plus car protection
-                such as PPF and ceramic coating, and car styling including wrapping
-                and related finish work.
+              <p className="z-copy max-w-2xl text-white/68 lg:text-lg">
+                Google rated {site.rating.value} from {site.rating.count} reviews.
+                Z1 Concepts is a car wash and automotive studio in Manjeri for
+                owners who want more than a quick wash: detailing, interior
+                cleaning, PPF, ceramic coating, wrapping and related finish work.
               </p>
-              <div className="relative mt-8 min-h-[16rem] overflow-hidden sm:min-h-[20rem]">
+              <div className="relative mt-6 min-h-[14rem] overflow-hidden sm:mt-8 sm:min-h-[20rem]">
                 <Image
                   src="/images/z1/maps-shop-5.jpg"
-                  alt="Z1 Concepts studio on Manjeri–Pandikkad Road"
+                  alt="Z1 Concepts studio on Manjeri-Pandikkad Road"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"

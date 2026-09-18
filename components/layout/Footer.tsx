@@ -7,16 +7,16 @@ export function Footer() {
   const tel = getTelHref();
 
   return (
-    <footer className="border-t border-white/10 bg-black py-12 pb-[calc(6.75rem+env(safe-area-inset-bottom))] sm:py-14 lg:pb-14">
+    <footer className="border-t border-white/10 bg-black py-6 pb-[max(1.25rem,env(safe-area-inset-bottom))] lg:py-14 lg:pb-14">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:gap-12">
+        <div className="hidden gap-12 lg:grid lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
             <Image
               src="/brand/z1-logo-trans.png"
               alt="Z1 Concepts"
               width={280}
               height={84}
-              className="h-10 w-auto sm:h-12"
+              className="h-12 w-auto max-w-[12rem]"
             />
             <p className="mt-6 max-w-sm text-sm uppercase tracking-[0.18em] text-white/50">
               Automotive Detailing
@@ -25,7 +25,7 @@ export function Footer() {
               <br />
               Styling
             </p>
-            <p className="mt-6 text-[15px] leading-relaxed text-white sm:text-base">
+            <p className="mt-6 text-base leading-relaxed text-white">
               {site.location.fullAddress}
             </p>
           </div>
@@ -78,7 +78,43 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs uppercase tracking-[0.18em] text-white/35 sm:flex-row sm:justify-between">
+        <div className="lg:hidden">
+          <Image
+            src="/brand/z1-logo-trans.png"
+            alt="Z1 Concepts"
+            width={280}
+            height={84}
+            className="h-7 w-auto max-w-[7rem]"
+          />
+          <p className="mt-3 text-[11px] uppercase tracking-[0.16em] text-white/45">
+            Detailing · Protection · Styling
+            <br />
+            Google 4.6★ car wash in Manjeri
+          </p>
+          <p className="mt-2 max-w-[20rem] text-[12px] leading-snug text-white/70">
+            {site.location.fullAddress}
+          </p>
+          <div className="mt-4 grid grid-cols-2 gap-6">
+            <nav className="flex flex-col gap-0.5">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex min-h-7 items-center text-[10px] uppercase tracking-[0.14em] text-white/60"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="flex flex-col gap-1 text-[11px] leading-relaxed text-white/55">
+              {tel ? <a href={tel}>{site.phone}</a> : <span>{site.phone}</span>}
+              <span>WhatsApp {site.whatsapp}</span>
+              <span>{site.hours}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-5 flex items-center justify-between gap-3 border-t border-white/10 pt-3 text-[10px] uppercase tracking-[0.16em] text-white/35 lg:mt-10 lg:pt-5 lg:text-xs lg:tracking-[0.18em]">
           <p>© {new Date().getFullYear()} Z1 Concepts</p>
           <p>Manjeri, Kerala</p>
         </div>

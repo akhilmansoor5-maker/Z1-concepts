@@ -3,7 +3,6 @@ import { IBM_Plex_Mono, Inter, Oswald } from "next/font/google";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -31,12 +30,17 @@ const siteUrl = "https://akhilmansoor5-maker.github.io/Z1-concepts";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Z1 Concepts | Automotive Detailing, Protection & Styling in Manjeri",
+    default: site.seoTitle,
     template: "%s | Z1 Concepts",
   },
   description: site.description,
   applicationName: site.name,
   keywords: [
+    "best car wash in Manjeri",
+    "best car wash Manjeri",
+    "car wash Manjeri",
+    "car wash in Manjeri",
+    "Google rated 4.6",
     "Z1 Concepts",
     "automotive detailing Manjeri",
     "car detailing Manjeri",
@@ -45,7 +49,7 @@ export const metadata: Metadata = {
     "car wrapping Manjeri",
   ],
   openGraph: {
-    title: "Z1 Concepts | Automotive Detailing, Protection & Styling in Manjeri",
+    title: site.seoTitle,
     description: site.description,
     locale: "en_IN",
     type: "website",
@@ -88,9 +92,10 @@ export default function RootLayout({
           Skip to content
         </a>
         <Navbar />
-        <main id="main">{children}</main>
+        <main id="main" className="w-full max-w-full overflow-x-clip pt-[calc(3.5rem+env(safe-area-inset-top))] lg:pt-0">
+          {children}
+        </main>
         <Footer />
-        <WhatsAppFab />
       </body>
     </html>
   );

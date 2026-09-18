@@ -21,14 +21,24 @@ export function BrandStatement() {
       className="relative overflow-hidden border-t border-white/10 bg-z1-black"
     >
       <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-        <Container className="flex flex-col justify-center py-14 sm:py-16 lg:max-w-none lg:py-20">
+        <div className="px-[max(1rem,env(safe-area-inset-left))] pt-3 pr-[max(1rem,env(safe-area-inset-right))] lg:hidden">
+          <div className="relative h-[min(18rem,40svh)] overflow-hidden border border-white/15">
+            <Image
+              src="/images/z1/ig-tagged.jpg"
+              alt="Red BMW at Z1 Concepts, the Google rated 4.6 car wash in Manjeri"
+              fill
+              sizes="100vw"
+              className="object-cover object-[center_40%]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-z1-black via-transparent to-black/20" />
+          </div>
+        </div>
+        <Container className="flex flex-col justify-center py-8 lg:max-w-none lg:py-20">
           <Reveal>
-            <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.38em] text-z1-red sm:text-[11px]">
-              Automotive studio
-            </p>
+            <p className="z-kicker mb-5 text-z1-red">Google 4.6★ · Manjeri</p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="max-w-xl font-display text-[clamp(2.15rem,11vw,5rem)] leading-[0.88] font-semibold tracking-tight text-white uppercase">
+            <h2 className="z-display max-w-xl text-white lg:text-[clamp(2.4rem,6vw,5rem)]">
               More than
               <br />
               a wash.
@@ -37,26 +47,26 @@ export function BrandStatement() {
           <Reveal delay={0.16}>
             <div className="mt-8 flex max-w-lg gap-5 sm:mt-10">
               <span className="mt-1.5 hidden h-12 w-px shrink-0 bg-z1-red sm:block" />
-              <p className="text-base leading-relaxed text-white/68 sm:text-lg">
-                From meticulous detailing to advanced vehicle protection and
-                styling, Z1 Concepts brings multiple layers of automotive care
+              <p className="z-copy text-white/68 lg:text-lg">
+                Google rated 4.6. Best car wash in Manjeri for detailing,
+                protection and styling, with wash, PPF, coatings and wrapping
                 under one roof.
               </p>
             </div>
           </Reveal>
         </Container>
 
-        <div className="relative min-h-[36svh] overflow-hidden lg:min-h-[56svh]">
+        <div className="relative hidden min-h-[56svh] overflow-hidden lg:block">
           <motion.div
             className="absolute inset-0"
             style={reduceMotion ? undefined : { scale: imageScale }}
           >
             <Image
               src="/images/z1/ig-tagged.jpg"
-              alt="Red BMW being hand-washed in front of the Z1 Concepts studio wall"
+              alt="Red BMW at Z1 Concepts, the Google rated 4.6 car wash in Manjeri"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-center"
+              className="object-cover object-[center_40%]"
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-z1-black via-transparent to-transparent lg:bg-gradient-to-r lg:from-z1-black/80 lg:via-transparent lg:to-transparent" />

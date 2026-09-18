@@ -28,12 +28,12 @@ export function PpfFeature() {
           <p className="mt-6 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
             Paint Protection Film is a clear layer applied over vehicle paint to
             help guard against everyday marks and debris. The finish is designed
-            to stay discreet — so the car still looks like the car.
+            to stay discreet, so the car still looks like the car.
           </p>
           <div className="mt-10">
             <Button
               href={getWhatsAppHref(
-                "Hello Z1 Concepts — I would like to enquire about Paint Protection Film (PPF).",
+                "Hello Z1 Concepts. I would like to enquire about Paint Protection Film (PPF).",
               )}
             >
               Explore PPF

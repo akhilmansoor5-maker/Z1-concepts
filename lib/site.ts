@@ -1,9 +1,10 @@
 export const site = {
   name: "Z1 CONCEPTS",
   shortName: "Z1",
-  tagline: "Automotive Detailing, Protection & Styling in Manjeri",
+  tagline: "Best car wash in Manjeri. Google rated 4.6.",
   description:
-    "Z1 Concepts is an automotive detailing, protection and styling studio in Manjeri, Kerala — covering wash and detail work, paint protection, coatings, wrapping and styling.",
+    "Best car wash in Manjeri. Z1 Concepts is Google rated 4.6 from 10 reviews for car wash, detailing, PPF, ceramic coating and styling on Manjeri-Pandikkad Road.",
+  seoTitle: "Best Car Wash in Manjeri | Z1 Concepts | Google 4.6",
   location: {
     city: "Manjeri",
     region: "Kerala",
@@ -11,9 +12,9 @@ export const site = {
     countryCode: "IN",
     postalCode: "676122",
     streetAddress:
-      "Manjeri–Pandikkad Road, near Madheena Hotel, Kizhakkethala",
+      "Manjeri-Pandikkad Road, near Madheena Hotel, Kizhakkethala",
     fullAddress:
-      "Z1 Concepts, Manjeri–Pandikkad Road, near Madheena Hotel, Kizhakkethala, Manjeri, Kerala 676122",
+      "Z1 Concepts, Manjeri-Pandikkad Road, near Madheena Hotel, Kizhakkethala, Manjeri, Kerala 676122",
   },
   instagram: {
     handle: "@z1.concepts_manjeri",
@@ -28,7 +29,7 @@ export const site = {
     source: "Google",
   },
   enquiryMessage:
-    "Hello Z1 Concepts — I would like to enquire about detailing, protection or styling for my car.",
+    "Hello Z1 Concepts. I would like to enquire about detailing, protection or styling for my car.",
   mapsSearchUrl: "https://share.google/xmlpAHymKvfLHlAjC",
 } as const;
 
@@ -83,7 +84,7 @@ export const featuredServices = [
     name: "Paint Protection Film",
     short: "PPF",
     description:
-      "A clear film layer designed to help shield paint from daily marks, stone chips and wear — while staying visually discreet.",
+      "A clear film layer designed to help shield paint from daily marks, stone chips and wear, while staying visually discreet.",
     image: "/images/z1/ig-july08.jpg",
     imageAlt: "Glossy protected vehicle parked in a Z1 Concepts bay",
     href: "/protection",
@@ -101,7 +102,7 @@ export const featuredServices = [
     name: "Car Detailing",
     short: "Detailing",
     description:
-      "Meticulous interior and exterior care — washing, cleaning and finishing that goes beyond a standard car wash.",
+      "Meticulous interior and exterior care: washing, cleaning and finishing that goes beyond a standard car wash.",
     image: "/images/z1/ig-jeep.jpg",
     imageAlt: "Foam wash on a Land Rover Defender at Z1 Concepts",
     href: "/services",
@@ -119,7 +120,7 @@ export const featuredServices = [
     name: "Car Wrapping",
     short: "Wrapping",
     description:
-      "Colour change and styling through professional wrapping — a visual transformation without a full respray.",
+      "Colour change and styling through professional wrapping, a visual transformation without a full respray.",
     image: "/images/z1/ig-july09.jpg",
     imageAlt: "Body-kit styling work in the Z1 Concepts studio",
     href: "/styling",
@@ -253,7 +254,7 @@ export const processSteps = [
   {
     index: "05",
     title: "Deliver",
-    copy: "The vehicle is checked and handed back — ready for the road.",
+    copy: "The vehicle is checked and handed back, ready for the road.",
   },
 ] as const;
 
@@ -344,6 +345,14 @@ export const navItems = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
+export const mobileNavItems = [
+  { label: "Home", href: "/" },
+  { label: "Detail", href: "/services" },
+  { label: "Protect", href: "/protection" },
+  { label: "Style", href: "/styling" },
+  { label: "Visit", href: "/contact" },
+] as const;
+
 export function getWhatsAppHref(message: string = site.enquiryMessage) {
   const text = encodeURIComponent(message);
   const number = site.whatsapp.replace(/[^\d]/g, "");
@@ -358,9 +367,10 @@ export function getTelHref() {
 
 export const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "AutoDetailing",
+  "@type": ["AutoDetailing", "LocalBusiness"],
   name: site.name,
-  description: site.tagline,
+  description: site.description,
+  url: "https://akhilmansoor5-maker.github.io/Z1-concepts/",
   image: "https://akhilmansoor5-maker.github.io/Z1-concepts/brand/z1-logo.png",
   telephone: site.phone,
   address: {
@@ -377,7 +387,28 @@ export const localBusinessJsonLd = {
     "@type": "AggregateRating",
     ratingValue: site.rating.value,
     reviewCount: site.rating.count,
+    bestRating: 5,
+    worstRating: 1,
   },
+  review: reviews.map((item) => ({
+    "@type": "Review",
+    reviewBody: item.quote,
+    author: {
+      "@type": "Person",
+      name: item.source,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Google",
+    },
+  })),
+  knowsAbout: [
+    "Car wash",
+    "Car detailing",
+    "Paint protection film",
+    "Ceramic coating",
+    "Car wrapping",
+  ],
   areaServed: {
     "@type": "City",
     name: site.location.city,

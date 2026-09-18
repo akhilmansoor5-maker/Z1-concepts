@@ -49,7 +49,7 @@ export function BackgroundMedia({
         alt={imageAlt}
         fill
         priority={priority}
-        sizes="100vw"
+        sizes="(max-width: 1023px) 92vw, 100vw"
         className={className}
       />
       {showVideo ? (

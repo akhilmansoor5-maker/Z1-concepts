@@ -6,16 +6,16 @@ const basePath = githubPages ? "/Z1-concepts" : "";
 
 if (basePath) {
   process.env.NEXT_PUBLIC_BASE_PATH = basePath;
+} else {
+  delete process.env.NEXT_PUBLIC_BASE_PATH;
 }
 
 const nextConfig: NextConfig = {
-  output: "export",
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
-  ...(basePath
+  ...(githubPages
     ? {
+        output: "export" as const,
+        trailingSlash: true,
+        images: { unoptimized: true },
         basePath,
         assetPrefix: basePath,
       }

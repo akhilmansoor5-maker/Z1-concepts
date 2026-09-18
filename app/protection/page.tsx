@@ -5,9 +5,9 @@ import { SurfaceProtection } from "@/components/sections/SurfaceProtection";
 import { getWhatsAppHref } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Protection",
+  title: "PPF & Ceramic Coating in Manjeri",
   description:
-    "Paint Protection Film, ceramic, graphene, borophene and nanodiamond coatings at Z1 Concepts, Manjeri.",
+    "PPF, ceramic, graphene, borophene and nanodiamond at Z1 Concepts, the Google rated 4.6 car wash and protection studio in Manjeri.",
 };
 
 export default function ProtectionPage() {
@@ -15,17 +15,17 @@ export default function ProtectionPage() {
     <>
       <PageHero
         kicker="Protect"
-        title="Paint protection, done with care."
-        copy="PPF and surface coatings — ceramic, graphene, borophene and nanodiamond — offered at the Manjeri studio."
-        image="/images/z1/ig-july08.jpg"
-        imageAlt="Finished black Ford at a Z1 Concepts detailing bay"
+        title={"Paint protection.\nDone with care."}
+        copy="PPF and surface coatings, ceramic, graphene, borophene and nanodiamond, offered at the Manjeri studio."
+        image="/images/z1/ig-june26.jpg"
+        imageAlt="Finished teal Suzuki Swift after studio work at Z1 Concepts"
       />
       <SurfaceProtection />
       <FinalCta
         heading="Ask about PPF and coatings."
         copy="Film and surface protection, chosen for the vehicle rather than a single formula."
         primaryHref={getWhatsAppHref(
-          "Hello Z1 Concepts — I would like to enquire about PPF or coatings.",
+          "Hello Z1 Concepts. I would like to enquire about PPF or coatings.",
         )}
         primaryLabel="WhatsApp protection"
       />

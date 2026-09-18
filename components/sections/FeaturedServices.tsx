@@ -58,7 +58,7 @@ export function FeaturedServices({
               <Reveal delay={0.1} className="lg:justify-self-end">
                 <Button
                   href={getWhatsAppHref(
-                    `Hello Z1 Concepts — I would like to enquire about ${service.name}.`,
+                    `Hello Z1 Concepts. I would like to enquire about ${service.name}.`,
                   )}
                   variant="outline"
                   size="sm"

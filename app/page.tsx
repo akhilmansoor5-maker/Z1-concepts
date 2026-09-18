@@ -1,9 +1,21 @@
+import type { Metadata } from "next";
 import { BrandStatement } from "@/components/sections/BrandStatement";
 import { CoreCategories } from "@/components/sections/CoreCategories";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Gallery } from "@/components/sections/Gallery";
 import { Hero } from "@/components/sections/Hero";
 import { Reviews } from "@/components/sections/Reviews";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: site.seoTitle,
+  },
+  description: site.description,
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
@@ -20,7 +32,7 @@ export default function Home() {
       <Reviews />
       <FinalCta
         heading="Bring the car in."
-        copy="Detailing, protection and styling at the Manjeri studio. WhatsApp Z1 to book a visit."
+        copy={"Detailing, protection and styling at the Manjeri studio.\nWhatsApp Z1 to book a visit."}
         image="/images/z1/maps-shop-1.jpg"
       />
     </>

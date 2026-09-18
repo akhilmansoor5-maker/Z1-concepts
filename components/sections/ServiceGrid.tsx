@@ -58,7 +58,7 @@ export function ServiceGrid({ kicker, heading, copy, items }: ServiceGridProps) 
                   <div className="mt-6">
                     <Button
                       href={getWhatsAppHref(
-                        `Hello Z1 Concepts — I would like to enquire about ${item.name}.`,
+                        `Hello Z1 Concepts. I would like to enquire about ${item.name}.`,
                       )}
                       variant="outline"
                       size="sm"
