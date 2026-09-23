@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import { useReducedMotion } from "framer-motion";
 import { asset } from "@/lib/asset";
 

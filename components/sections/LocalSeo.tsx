@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { getTelHref, site } from "@/lib/site";
